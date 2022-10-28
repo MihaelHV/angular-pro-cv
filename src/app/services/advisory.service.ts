@@ -3,32 +3,32 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 
-const baseUrl = 'http://localhost:3000/students';
+const baseUrl = 'http://localhost:3000/advisories';
 
 @Injectable({
   providedIn: 'root',
 })
 
-export class StudentService {
+export class AdvisoryService {
   constructor(private http: HttpClient) {}
 
-  getStudents(): Observable<any[]> {
+  getAdvisories(): Observable<any[]> {
     return this.http.get<any[]>(baseUrl);
   }
 
-  getStudent(id: number): Observable<any> {
+  getAdvisory(id: number): Observable<any> {
     return this.http.get<any>(`${baseUrl}/${id}`);
   }
 
-  addStudent(student: any) {
-    return this.http.post(baseUrl, student);
+  addAdvisory(advisory: any) {
+    return this.http.post(baseUrl, advisory);
   }
 
-  updateStudent(id: any, student: any) {
-    return this.http.put(`${baseUrl}/${id}`, student);
+  updateAdvisory(id: any, advisory: any) {
+    return this.http.put(`${baseUrl}/${id}`, advisory);
   }
 
-  deleteStudent(id: any) {
+  deleteAdvisory(id: any) {
     return this.http.delete(`${baseUrl}/${id}`);
   }
 }

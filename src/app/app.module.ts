@@ -12,6 +12,10 @@ import { ToolbarComponent } from './component/toolbar/toolbar/toolbar.component'
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './component/shared/angular-material.module';
+import { NavbarComponent } from './component/navbar/navbar.component';
+import { ListAdvisoryComponent } from './component/advisory/list-advisory/list-advisory.component';
+import { AddAdvisoryComponent } from './component/advisory/add-advisory/add-advisory.component';
+import { EditAdvisoryComponent } from './component/advisory/edit-advisory/edit-advisory.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +24,10 @@ import { AngularMaterialModule } from './component/shared/angular-material.modul
     EditStudentComponent,
     ListStudentComponent,
     ToolbarComponent,
+    NavbarComponent,
+    ListAdvisoryComponent,
+    AddAdvisoryComponent,
+    EditAdvisoryComponent,
     
   ],
   imports: [

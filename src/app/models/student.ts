@@ -1,8 +1,6 @@
 export class Student {
-    id_Student: any;
-    first_Name: any;
-    last_Name: any;
-    dni: any;
+    id: any;
+    fullName: any;
     email: any;
-    celular: any;
+    username: any;
 }
