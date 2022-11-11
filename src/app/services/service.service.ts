@@ -1,34 +1,35 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-
-
-const baseUrl = 'http://localhost:3000/services';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 
 export class ServiceService {
+
+  baseUrl: string = environment.baseUrl+"/serviceTypes";
+
   constructor(private http: HttpClient) {}
 
   getServices(): Observable<any[]> {
-    return this.http.get<any[]>(baseUrl);
+    return this.http.get<any[]>(this.baseUrl);
   }
 
   getService(id: number): Observable<any> {
-    return this.http.get<any>(`${baseUrl}/${id}`);
+    return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
   addService(service: any) {
-    return this.http.post(baseUrl, service);
+    return this.http.post(this.baseUrl, service);
   }
 
   updateService(id: any, service: any) {
-    return this.http.put(`${baseUrl}/${id}`, service);
+    return this.http.put(`${this.baseUrl}/${id}`, service);
   }
 
   deleteService(id: any) {
-    return this.http.delete(`${baseUrl}/${id}`);
+    return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

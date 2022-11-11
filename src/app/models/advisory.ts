@@ -1,6 +1,7 @@
 export class Advisory {
-    id: any;
+    idAdvisory: any;
     student: any;
-    service: any;
+    serviceType: any;
     date: any;
+    teacher: any;
 }

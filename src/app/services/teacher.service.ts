@@ -7,29 +7,29 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 
-export class StudentService {
+export class TeacherService {
 
-  baseUrl: string = environment.baseUrl+"/students";
+  baseUrl: string = environment.baseUrl+"/teachers";
 
   constructor(private http: HttpClient) {}
 
-  getStudents(): Observable<any[]> {
+  getTeachers(): Observable<any[]> {
     return this.http.get<any[]>(this.baseUrl);
   }
 
-  getStudent(id: number): Observable<any> {
+  getTeacher(id: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/${id}`);
   }
 
-  addStudent(student: any) {
-    return this.http.post(this.baseUrl, student);
+  addTeacher(teacher: any) {
+    return this.http.post(this.baseUrl, teacher);
   }
 
-  updateStudent(id: any, student: any) {
-    return this.http.put(`${this.baseUrl}/${id}`, student);
+  updateTeacher(id: any, teacher: any) {
+    return this.http.put(`${this.baseUrl}/${id}`, teacher);
   }
 
-  deleteStudent(id: any) {
+  deleteTeacher(id: any) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }

@@ -13,9 +13,10 @@ import * as moment from 'moment';
 export class ListAdvisoryComponent implements OnInit {
 
   displayedColumns: string[] = [
-    'id',
+    'idAdvisory',
     'student',
-    'service',
+    'teacher',
+    'serviceType',
     'date',
     'actions',
   ];

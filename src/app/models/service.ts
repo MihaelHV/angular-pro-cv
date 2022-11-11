@@ -1,4 +1,4 @@
 export class Service {
-    id: any;
+    idServiceType: any;
     description: any;
 }

@@ -1,5 +1,5 @@
-export class Student {
-    idStudent: any;
+export class Teacher {
+    idTeacher: any;
     firstName: any;
     lastName: any;
     email: any;
