@@ -1,6 +1,4 @@
 export const environment = {
   production: true,
-  basePath: 'http://localhost:3000/students',
-  
-
+  baseUrl: 'https://app-pro-cv.herokuapp.com',
 };

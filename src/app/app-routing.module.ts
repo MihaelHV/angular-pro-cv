@@ -7,10 +7,14 @@ import { EditAdvisoryComponent } from './component/advisory/edit-advisory/edit-a
 import { ListStudentComponent } from './component/student/list-student/list-student.component';
 import { AddStudentComponent } from './component/student/add-student/add-student.component';
 import { EditStudentComponent } from './component/student/edit-student/edit-student.component';
+import { ListTeacherComponent } from './component/teacher/list-teacher/list-teacher.component';
+import { AddTeacherComponent } from './component/teacher/add-teacher/add-teacher.component';
+import { EditTeacherComponent } from './component/teacher/edit-teacher/edit-teacher.component';
 
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
+
   { path: 'advisories', component: ListAdvisoryComponent },
   { path: 'advisories/new', component: AddAdvisoryComponent },
   { path: 'advisories/edit/:id', component: EditAdvisoryComponent },
@@ -18,6 +22,10 @@ const routes: Routes = [
   { path: 'students', component: ListStudentComponent },
   { path: 'students/new', component: AddStudentComponent },
   { path: 'students/edit/:id', component: EditStudentComponent },
+
+  { path: 'teachers', component: ListTeacherComponent },
+  { path: 'teachers/new', component: AddTeacherComponent },
+  { path: 'teachers/edit/:id', component: EditTeacherComponent },
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 

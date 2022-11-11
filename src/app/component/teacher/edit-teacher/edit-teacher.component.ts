@@ -2,22 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Student } from 'src/app/models/student';
-import { StudentService } from 'src/app/services/student.service';
+import { Teacher } from 'src/app/models/teacher';
+import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
-  selector: 'app-edit-student',
-  templateUrl: './edit-student.component.html',
-  styleUrls: ['./edit-student.component.css'],
+  selector: 'app-edit-teacher',
+  templateUrl: './edit-teacher.component.html',
+  styleUrls: ['./edit-teacher.component.css'],
 })
-export class EditStudentComponent implements OnInit {
+export class EditTeacherComponent implements OnInit {
   myForm!: FormGroup;
-  student!: Student;
-  idStudent: any;
+  teacher!: Teacher;
+  idTeacher: any;
 
   constructor(
     private fb: FormBuilder,
-    private studentService: StudentService,
+    private teacherService: TeacherService,
     private snackBar: MatSnackBar,
     private router: Router,
     private route: ActivatedRoute
@@ -25,12 +25,12 @@ export class EditStudentComponent implements OnInit {
 
   ngOnInit(): void {
     this.reactiveForm();
-    this.loadStudent();
+    this.loadTeacher();
   }
 
   reactiveForm() {
     this.myForm = this.fb.group({
-      idStudent: [''],
+      idTeacher: [''],
       firstName: [''],
       lastName: [''],
       dni: [''],
@@ -39,24 +39,24 @@ export class EditStudentComponent implements OnInit {
     });
   }
 
-  loadStudent() {
-    this.idStudent = this.route.snapshot.paramMap.get('id');
-    this.studentService.getStudent(this.idStudent).subscribe((data) => {
-      this.student = data;
+  loadTeacher() {
+    this.idTeacher = this.route.snapshot.paramMap.get('id');
+    this.teacherService.getTeacher(this.idTeacher).subscribe((data) => {
+      this.teacher = data;
       this.myForm = this.fb.group({
-        idStudent: [this.student.idStudent],
-        firstName: [this.student.firstName],
-        lastName: [this.student.lastName],
-        dni: [this.student.dni],
-        email: [this.student.email],
-        cellphone: [this.student.cellphone],
+        idTeacher: [this.teacher.idTeacher],
+        firstName: [this.teacher.firstName],
+        lastName: [this.teacher.lastName],
+        dni: [this.teacher.dni],
+        email: [this.teacher.email],
+        cellphone: [this.teacher.cellphone],
       });
     });
   }
 
-  updateStudent(): void {
-    const student: Student = {
-      idStudent: parseInt(this.idStudent),
+  updateTeacher(): void {
+    const teacher: Teacher = {
+      idTeacher: parseInt(this.idTeacher),
       firstName: this.myForm.get('firstName')!.value,
       lastName: this.myForm.get('lastName')!.value,
       dni: this.myForm.get('dni')!.value,
@@ -64,14 +64,14 @@ export class EditStudentComponent implements OnInit {
       cellphone: this.myForm.get('cellphone')!.value,
     };
 
-    console.log(student);
+    console.log(teacher);
 
-    this.studentService.updateStudent(this.idStudent, student).subscribe({
+    this.teacherService.updateTeacher(this.idTeacher, teacher).subscribe({
       next: (data) => {
         this.snackBar.open('La aesoria fue actualizada con exito!', '', {
           duration: 6000,
         });
-        this.router.navigate(['/students']);
+        this.router.navigate(['/teachers']);
       },
       error: (err) => {
         console.log(err);

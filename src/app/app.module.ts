@@ -16,6 +16,9 @@ import { NavbarComponent } from './component/navbar/navbar.component';
 import { ListAdvisoryComponent } from './component/advisory/list-advisory/list-advisory.component';
 import { AddAdvisoryComponent } from './component/advisory/add-advisory/add-advisory.component';
 import { EditAdvisoryComponent } from './component/advisory/edit-advisory/edit-advisory.component';
+import { ListTeacherComponent } from './component/teacher/list-teacher/list-teacher.component';
+import { AddTeacherComponent } from './component/teacher/add-teacher/add-teacher.component';
+import { EditTeacherComponent } from './component/teacher/edit-teacher/edit-teacher.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { EditAdvisoryComponent } from './component/advisory/edit-advisory/edit-a
     ListAdvisoryComponent,
     AddAdvisoryComponent,
     EditAdvisoryComponent,
+    ListTeacherComponent,
+    AddTeacherComponent,
+    EditTeacherComponent,
     
   ],
   imports: [

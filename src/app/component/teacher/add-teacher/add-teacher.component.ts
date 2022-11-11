@@ -2,20 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-import { Student } from 'src/app/models/student';
-import { StudentService } from 'src/app/services/student.service';
+import { Teacher } from 'src/app/models/teacher';
+import { TeacherService } from 'src/app/services/teacher.service';
 
 @Component({
-  selector: 'app-add-student',
-  templateUrl: './add-student.component.html',
-  styleUrls: ['./add-student.component.css'],
+  selector: 'app-add-teacher',
+  templateUrl: './add-teacher.component.html',
+  styleUrls: ['./add-teacher.component.css'],
 })
-export class AddStudentComponent implements OnInit {
+export class AddTeacherComponent implements OnInit {
   myForm!: FormGroup;
 
   constructor(
     private fb: FormBuilder,
-    private studentService: StudentService,
+    private teacherService: TeacherService,
     private snackBar: MatSnackBar,
     private router: Router
   ) {}
@@ -26,7 +26,7 @@ export class AddStudentComponent implements OnInit {
 
   reactiveForm() {
     this.myForm = this.fb.group({
-      idStudent: [''],
+      idTeacher: [''],
       firstName: [''],
       lastName: [''],
       dni: [''],
@@ -35,9 +35,9 @@ export class AddStudentComponent implements OnInit {
     });
   }
 
-  saveStudent(): void {
-    const student: Student = {
-      idStudent: 0,
+  saveTeacher(): void {
+    const teacher: Teacher = {
+      idTeacher: 0,
       firstName: this.myForm.get('firstName')!.value,
       lastName: this.myForm.get('lastName')!.value,
       dni: this.myForm.get('dni')!.value,
@@ -45,12 +45,12 @@ export class AddStudentComponent implements OnInit {
       cellphone: this.myForm.get('cellphone')!.value,
     };
 
-    this.studentService.addStudent(student).subscribe({
+    this.teacherService.addTeacher(teacher).subscribe({
       next: (data) => {
         this.snackBar.open('¡El estudiante fue registrado con éxito!', '', {
           duration: 6000,
         });
-        this.router.navigate(['/students']);
+        this.router.navigate(['/teachers']);
       },
       error: (err) => {
         console.log(err);

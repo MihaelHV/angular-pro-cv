@@ -14,15 +14,14 @@ import { Teacher } from 'src/app/models/teacher';
 @Component({
   selector: 'app-add-advisory',
   templateUrl: './add-advisory.component.html',
-  styleUrls: ['./add-advisory.component.css']
+  styleUrls: ['./add-advisory.component.css'],
 })
 export class AddAdvisoryComponent implements OnInit {
-
   myForm!: FormGroup;
 
-  services: any[]=[];
-  teachers: any[]=[];
-  students: any[]=[];
+  services: any[] = [];
+  teachers: any[] = [];
+  students: any[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -48,14 +47,13 @@ export class AddAdvisoryComponent implements OnInit {
       teacher: [''],
       serviceType: [''],
       date: [new Date()],
-     
     });
   }
 
   getStudents(): void {
     this.studentService.getStudents().subscribe({
       next: (data: Student[]) => {
-        this.students=data;
+        this.students = data;
       },
     });
   }
@@ -63,7 +61,7 @@ export class AddAdvisoryComponent implements OnInit {
   getTeachers(): void {
     this.teacherService.getTeachers().subscribe({
       next: (data: Teacher[]) => {
-        this.teachers=data;
+        this.teachers = data;
       },
     });
   }
@@ -71,7 +69,7 @@ export class AddAdvisoryComponent implements OnInit {
   getServices(): void {
     this.serviceService.getServices().subscribe({
       next: (data: Service[]) => {
-        this.services=data;
+        this.services = data;
       },
     });
   }
@@ -79,14 +77,13 @@ export class AddAdvisoryComponent implements OnInit {
   saveAdvisory(): void {
     const advisory: Advisory = {
       idAdvisory: 0,
-      student: {idStudent: parseInt(this.myForm.get('student')!.value)},
-      teacher: {idTeacher: parseInt(this.myForm.get('teacher')!.value)},
-      serviceType: {idServiceType: parseInt(this.myForm.get('serviceType')!.value)},
+      student: { idStudent: parseInt(this.myForm.get('student')!.value) },
+      teacher: { idTeacher: parseInt(this.myForm.get('teacher')!.value) },
+      serviceType: {
+        idServiceType: parseInt(this.myForm.get('serviceType')!.value),
+      },
       date: this.myForm.get('date')!.value,
-     
     };
-
-    console.log(advisory);
 
     this.advisoryService.addAdvisory(advisory).subscribe({
       next: (data) => {
@@ -100,5 +97,4 @@ export class AddAdvisoryComponent implements OnInit {
       },
     });
   }
-
 }
