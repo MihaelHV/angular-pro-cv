@@ -1,0 +1,28 @@
+button{
+    width: 130px;
+    height: 35px;
+    background-color: #0C5BA6;
+    border-radius:7px;
+}
+.log{
+    width: 100%;
+    max-width: 330%;
+    text-align: center;
+}
+.body{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    align-items: center;
+    background-color:rgb(59 76 192);
+}
+h1{
+    font-size: 40px;
+    font-weight: 700;
+    font-stretch:narrower;
+    color: white;
+}
+input{
+    border-style: none;
+    color: white;
+}

@@ -1,0 +1,21 @@
+<div class="body">
+    <div class="log">
+      <h1>Welcome</h1>
+      <mat-icon style="margin-bottom:10px;color: white;">library_books</mat-icon>
+      <form [formGroup]="myForm" (ngSubmit)="submit()">
+        <div>
+          <mat-form-field  appearance="outline">
+            <mat-label>username</mat-label>
+            <input matInput class="input" formControlName="username" placeholder="username"/>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>password</mat-label>
+            <input matInput class="input" formControlName="password" type="password" placeholder="password"/>
+          </mat-form-field>
+        </div>
+        <button mat-button type="submit">Login</button>
+      </form>
+    </div>  
+  </div>

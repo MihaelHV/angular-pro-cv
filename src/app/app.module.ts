@@ -19,6 +19,8 @@ import { EditAdvisoryComponent } from './component/advisory/edit-advisory/edit-a
 import { ListTeacherComponent } from './component/teacher/list-teacher/list-teacher.component';
 import { AddTeacherComponent } from './component/teacher/add-teacher/add-teacher.component';
 import { EditTeacherComponent } from './component/teacher/edit-teacher/edit-teacher.component';
+import { HeaderComponent } from './component/header/header.component';
+import { LoginComponent } from './component/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,8 @@ import { EditTeacherComponent } from './component/teacher/edit-teacher/edit-teac
     ListTeacherComponent,
     AddTeacherComponent,
     EditTeacherComponent,
+    HeaderComponent,
+    LoginComponent,
     
   ],
   imports: [
