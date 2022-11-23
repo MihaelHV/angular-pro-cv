@@ -47,7 +47,7 @@ export class AddTeacherComponent implements OnInit {
 
     this.teacherService.addTeacher(teacher).subscribe({
       next: (data) => {
-        this.snackBar.open('¡El estudiante fue registrado con éxito!', '', {
+        this.snackBar.open('¡El Profesor fue registrado con éxito!', '', {
           duration: 6000,
         });
         this.router.navigate(['/teachers']);

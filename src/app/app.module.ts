@@ -21,6 +21,7 @@ import { AddTeacherComponent } from './component/teacher/add-teacher/add-teacher
 import { EditTeacherComponent } from './component/teacher/edit-teacher/edit-teacher.component';
 import { HeaderComponent } from './component/header/header.component';
 import { LoginComponent } from './component/login/login.component';
+import { HomeComponent } from './component/home/home.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { LoginComponent } from './component/login/login.component';
     EditTeacherComponent,
     HeaderComponent,
     LoginComponent,
+    HomeComponent,
     
   ],
   imports: [
@@ -47,7 +49,6 @@ import { LoginComponent } from './component/login/login.component';
     HttpClientModule,
     ReactiveFormsModule,
     AngularMaterialModule,
-
   ],
   providers: [],
   bootstrap: [AppComponent]

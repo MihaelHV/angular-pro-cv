@@ -15,10 +15,9 @@ import { LoginComponent } from './component/login/login.component';
 
 
 const routes: Routes = [
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  {path: 'home', component: HomeComponent },
+  {path: '', redirectTo: 'home', pathMatch: 'full' },
   {path:'login',component:LoginComponent},
-  
   {path:'header',component:HeaderComponent,children:[
     { path: 'students/edit/:id', component: EditStudentComponent },
     { path: 'students', component: ListStudentComponent },

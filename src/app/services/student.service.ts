@@ -32,4 +32,10 @@ export class StudentService {
   deleteStudent(id: any) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+  exportStudent() {
+    const endpoint = `${this.baseUrl}/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
+  }
 }

@@ -68,7 +68,7 @@ export class EditTeacherComponent implements OnInit {
 
     this.teacherService.updateTeacher(this.idTeacher, teacher).subscribe({
       next: (data) => {
-        this.snackBar.open('La aesoria fue actualizada con exito!', '', {
+        this.snackBar.open('Los datos fueron actulizados!', '', {
           duration: 6000,
         });
         this.router.navigate(['/teachers']);
