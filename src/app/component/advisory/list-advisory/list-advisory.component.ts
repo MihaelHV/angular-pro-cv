@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { Advisory } from 'src/app/models/advisory';
 import { AdvisoryService } from 'src/app/services/advisory.service';
+import { MatSnackBar,MatSnackBarRef, SimpleSnackBar } from '@angular/material/snack-bar';
 import * as moment from 'moment';
 
 @Component({
@@ -24,7 +25,7 @@ export class ListAdvisoryComponent implements OnInit {
 
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
 
-  constructor(private advisoryService: AdvisoryService) {}
+  constructor(private advisoryService: AdvisoryService,private snackBar: MatSnackBar) {}
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
@@ -55,9 +56,35 @@ export class ListAdvisoryComponent implements OnInit {
       },
     });
   }
-
+  openSnackBar(
+    message: string,
+    action: string
+  ): MatSnackBarRef<SimpleSnackBar> {
+    return this.snackBar.open(message, action, {
+      duration: 2000,
+    });
+  }
   convertDate(date: any) {
     return moment(date).format("DD-MM-YYYY HH:mm");
+  }
+  reporte(){
+    this.advisoryService.exportAdvisory().subscribe(
+      (data: any) => {
+        let file = new Blob([data], {
+          type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+        });
+        let fileUrl = URL.createObjectURL(file);
+        var anchor = document.createElement('a');
+        anchor.download = 'products.xlsx';
+        anchor.href = fileUrl;
+        anchor.click();
+
+        this.openSnackBar('Archivo exportado correctamente', 'Exitosa');
+      },
+      (error: any) => {
+        this.openSnackBar('No se pudo exportar el archivo', 'Error');
+      }
+    );
   }
 
 }

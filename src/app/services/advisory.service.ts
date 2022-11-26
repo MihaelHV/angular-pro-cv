@@ -32,4 +32,10 @@ baseUrl: string = environment.baseUrl+"/advisories";
   deleteAdvisory(id: any) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+  exportAdvisory() {
+    const endpoint = `${this.baseUrl}/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
+  }
 }

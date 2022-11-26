@@ -32,4 +32,10 @@ export class TeacherService {
   deleteTeacher(id: any) {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
+  exportTeacher() {
+    const endpoint = `${this.baseUrl}/export/excel`;
+    return this.http.get(endpoint, {
+      responseType: 'blob',
+    });
+  }
 }
